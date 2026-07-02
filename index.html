@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Power BI - Proyecto</title>
+    <script src="https://app.connect.trimble.com/tc/api/2.0/trimble-connect-workspace-api.js"></script>
+    
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f4f4f4; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <iframe src="https://app.powerbi.com/reportEmbed?reportId=0aa81fb3-bf8e-40d5-b630-b4570e26021d&autoAuth=true&ctid=3bd3f355-4a2a-4058-a53d-45d503598982" allowFullScreen="true"></iframe>
+
+    <script>
+        window.onload = function() {
+            // Esto le indica a Trimble Connect que el panel está listo e interactivo
+            WorkspaceAPI.init().then(function(api) {
+                console.log("Extensión de Power BI inicializada correctamente.");
+                
+                // (Opcional) Aquí podrías agregar funciones futuras con JavaScript, 
+                // como reaccionar cuando el cliente selecciona un objeto en el modelo 3D.
+            }).catch(function(error) {
+                console.error("Error al inicializar la API de Trimble: ", error);
+            });
+        };
+    </script>
+</body>
+</html>
